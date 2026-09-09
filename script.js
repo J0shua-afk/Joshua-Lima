@@ -16,7 +16,7 @@ const CONFIG = {
   email:       "Joshualima900@gmail.com",
   githubUrl:   "https://github.com/J0shua-afk",
   linkedinUrl: "https://www.linkedin.com/in/joshua-grace-lima-40128b31b/",
-  repoUrl:     "https://github.com/J0shua-afk/portfolio",    // EDIT — this site's own repo
+  repoUrl:     "https://github.com/J0shua-afk/Joshua.Lima",    // EDIT — this site's own repo
 
   /* ---------------------------------------------------------------------
      PROJECTS
@@ -90,7 +90,7 @@ const CONFIG = {
      SKILLS — one row per object. Taken from your resume.
      --------------------------------------------------------------------- */
   skills: [
-    { label: "Languages",       items: "Python, C#, C/C++, JavaScript, TypeScript, HTML/CSS, SQL, Bash" },
+    { label: "Languages",       items: "Python, C#, C/C++, JavaScript/TypeScript, HTML/CSS, SQL, Bash" },
     { label: "Frameworks",      items: "Flask, React, Node.js, Angular, Flutter, PyTorch" },
     { label: "Developer tools", items: "Git, GitHub, MySQL, MongoDB, Google Cloud, AWS, Figma, VS Code" },
     { label: "Libraries",       items: "NumPy, Pandas, Matplotlib, Requests, jQuery" }
@@ -99,7 +99,7 @@ const CONFIG = {
 
 
 /* ==========================================================================
-   RENDERING — nothing below here needs editing
+   RENDERING 
    ========================================================================== */
 (function () {
   "use strict";
