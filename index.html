@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Joshua-Grace Lima</title>
+<meta name="description" content="Joshua-Grace Lima — third-year Computer Science student at Seneca Polytechnic, building full-stack web applications in Toronto.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="styles.css">
+<script src="script.js" defer></script>
+</head>
+
+<body>
+
+<!-- graduation markings, large displays only -->
+<div class="ruler ruler--left" aria-hidden="true"></div>
+<div class="ruler ruler--right" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="bar container">
+    <a class="brand" href="#top">
+      <!-- EDIT: drop your photo in at assets/profile.jpg. Initials show until then. -->
+      <span class="avatar" id="avatar">
+        <img id="avatar-img" src="assets/profile.jpg" alt="">
+      </span>
+      <span class="brand__name">Joshua-Grace Lima</span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="#projects">Projects</a>
+      <a id="nav-github"   href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a id="nav-linkedin" href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero container">
+    <h1>Joshua-Grace Lima</h1>
+    <p class="lede">
+      <strong>Third-year Computer Science student at Seneca Polytechnic</strong>,
+      building full-stack web applications in Toronto.
+    </p>
+  </section>
+
+  <!-- PROJECTS — entries are rendered from PROJECTS in script.js -->
+  <section id="projects" class="section container" aria-labelledby="projects-title">
+    <h2 class="section-title" id="projects-title">Projects</h2>
+    <div class="projects" id="project-list"></div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section container" aria-labelledby="experience-title">
+    <h2 class="section-title" id="experience-title">Experience</h2>
+    <p class="experience__lead">No relevant professional tech experience yet.</p>
+    <p class="experience__note">
+      The projects above are where the practical work lives &mdash; designed, built and
+      shipped end to end. Actively looking for a first co-op term.
+    </p>
+  </section>
+
+  <!-- EDUCATION — EDIT: entries below, newest first -->
+  <section class="section container" aria-labelledby="education-title">
+    <h2 class="section-title" id="education-title">Education</h2>
+    <ol class="edu">
+      <li class="edu__item">
+        <span class="edu__years">2024 &ndash; 2027</span>
+        <div>
+          <h3 class="edu__school">Seneca Polytechnic</h3>
+          <p class="edu__degree">Bachelor of Computer Science</p>
+        </div>
+      </li>
+      <li class="edu__item">
+        <span class="edu__years">2023 &ndash; 2024</span>
+        <div>
+          <h3 class="edu__school">Ontario Tech University</h3>
+          <p class="edu__degree">Bachelor of Engineering and Co-op (Hons), Software Engineering</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- SKILLS — rendered from SKILLS in script.js -->
+  <section class="section container" aria-labelledby="skills-title">
+    <h2 class="section-title" id="skills-title">Skills</h2>
+    <dl class="skills" id="skill-list"></dl>
+  </section>
+
+</main>
+
+<footer class="site-footer container">
+  <div class="footer-grid">
+
+    <div class="footer-col">
+      <h2 class="footer-label">Crafted by</h2>
+      <p class="footer-name">Joshua-Grace Lima</p>
+      <div class="email-row">
+        <a id="footer-email" href="#">&nbsp;</a>
+        <button type="button" class="copy-btn" id="copy-email"
+                aria-label="Copy email address to clipboard" title="Copy email address">
+          <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="9" y="9" width="12" height="12" rx="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 6 9 17l-5-5"></path>
+          </svg>
+        </button>
+      </div>
+      <p class="visually-hidden" id="copy-status" role="status" aria-live="polite"></p>
+    </div>
+
+    <div class="footer-col">
+      <h2 class="footer-label">Inspired by</h2>
+      <ul>
+        <li><a href="https://devanshusharma.com" target="_blank" rel="noopener noreferrer">devanshusharma.com</a></li>
+        <li><a href="https://ui.shadcn.com"      target="_blank" rel="noopener noreferrer">ui.shadcn.com</a></li>
+        <li><a href="https://tailwindcss.com"    target="_blank" rel="noopener noreferrer">tailwindcss.com</a></li>
+        <li><a href="https://swamii.me"          target="_blank" rel="noopener noreferrer">swamii.me</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h2 class="footer-label">Project</h2>
+      <ul>
+        <li><a id="footer-repo" href="#" target="_blank" rel="noopener noreferrer">Source code</a></li>
+        <li><a href="https://vercel.com" target="_blank" rel="noopener noreferrer">Deployed by Vercel</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <p class="footer-meta">&copy; <span id="year"></span> Joshua-Grace Lima</p>
+</footer>
+
+</body>
+</html>

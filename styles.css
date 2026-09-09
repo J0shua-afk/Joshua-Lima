@@ -1,0 +1,556 @@
+/* ==========================================================================
+   Joshua-Grace Lima — portfolio styles
+   --------------------------------------------------------------------------
+   1. Tokens
+   2. Base
+   3. Column
+   4. Edge graduation markings
+   5. Header
+   6. Sections / hero
+   7. Projects  (editorial grid)
+   8. Experience
+   9. Education
+  10. Skills
+  11. Footer
+  12. Motion
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. TOKENS
+   ========================================================================== */
+:root{
+  --bg:           #000000;
+  --text:         #f5f5f7;
+  --muted:        #86868b;
+  --dim:          #78787d;
+  --rule:         #1f1f1f;
+  --rule-strong:  #333336;
+
+  --tick:         #2b2b2d;
+  --tick-major:   #4a4a4e;
+
+  --building:      #ffd60a;
+  --building-glow: rgba(255, 214, 10, 0.30);
+  --live:          #30d158;
+  --live-glow:     rgba(48, 209, 88, 0.30);
+
+  --col:      860px;
+  --gutter:   24px;
+  --header-h: 58px;
+
+  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+          "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+
+/* ==========================================================================
+   2. BASE
+   ========================================================================== */
+*,*::before,*::after{ box-sizing:border-box; }
+
+html{
+  -webkit-text-size-adjust:100%;
+  scroll-behavior:smooth;
+  scroll-padding-top:calc(var(--header-h) + 24px);
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.6;
+  letter-spacing:-0.011em;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+a{ color:inherit; text-decoration:none; }
+
+a:focus-visible,
+button:focus-visible{
+  outline:1px solid var(--text);
+  outline-offset:4px;
+  border-radius:3px;
+}
+
+h1,h2,h3{ margin:0; font-weight:600; letter-spacing:-0.03em; line-height:1.15; }
+p{ margin:0; }
+ul,ol{ margin:0; padding:0; list-style:none; }
+img{ display:block; max-width:100%; }
+
+.visually-hidden{
+  position:absolute; width:1px; height:1px;
+  margin:-1px; padding:0; border:0;
+  clip:rect(0 0 0 0); clip-path:inset(50%);
+  overflow:hidden; white-space:nowrap;
+}
+
+
+/* ==========================================================================
+   3. COLUMN
+   ========================================================================== */
+.container{
+  width:100%;
+  max-width:var(--col);
+  margin-inline:auto;
+  padding-inline:var(--gutter);
+}
+
+/* the content column's own vertical hairlines — desktop only */
+@media (min-width:940px){
+  .container{ border-inline:1px solid var(--rule); }
+}
+
+
+/* ==========================================================================
+   4. EDGE GRADUATION MARKINGS  (large displays only)
+   ========================================================================== */
+.ruler{ display:none; }
+
+@media (min-width:1000px){
+  .ruler{
+    display:block;
+    position:fixed;
+    top:0;
+    bottom:0;
+    width:34px;
+    z-index:5;
+    pointer-events:none;
+  }
+  .ruler::before,
+  .ruler::after{ content:""; position:absolute; top:0; bottom:0; }
+
+  /* minor graduations, every 10px */
+  .ruler::before{
+    width:7px;
+    background:repeating-linear-gradient(
+      to bottom, var(--tick) 0 1px, transparent 1px 10px);
+  }
+  /* major graduations, every 50px */
+  .ruler::after{
+    width:17px;
+    background:repeating-linear-gradient(
+      to bottom, var(--tick-major) 0 1px, transparent 1px 50px);
+  }
+
+  .ruler--left{ left:0; }
+  .ruler--left::before,
+  .ruler--left::after{ left:0; }
+
+  .ruler--right{ right:0; }
+  .ruler--right::before,
+  .ruler--right::after{ right:0; }
+}
+
+
+/* ==========================================================================
+   5. HEADER
+   ========================================================================== */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:30;
+  background:rgba(0,0,0,0.70);
+  backdrop-filter:saturate(180%) blur(16px);
+  -webkit-backdrop-filter:saturate(180%) blur(16px);
+  border-bottom:1px solid var(--rule);
+}
+
+.bar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  height:var(--header-h);
+}
+
+.brand{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-size:15px;
+  font-weight:600;
+  letter-spacing:-0.02em;
+  white-space:nowrap;
+  min-height:44px;
+}
+
+.avatar{
+  width:26px; height:26px;
+  flex:none;
+  border-radius:50%;
+  overflow:hidden;
+  background:#161618;
+  border:1px solid var(--rule-strong);
+  display:grid;
+  place-items:center;
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:0.02em;
+  color:var(--muted);
+}
+.avatar img{ width:100%; height:100%; object-fit:cover; }
+
+.nav{ display:flex; align-items:center; gap:24px; }
+
+.nav a{
+  font-size:14px;
+  color:var(--muted);
+  transition:color .18s ease;
+  display:inline-flex;
+  align-items:center;
+  min-height:44px;
+}
+.nav a:hover{ color:var(--text); }
+
+@media (max-width:560px){
+  .brand{ font-size:14px; gap:8px; }
+  .brand .brand__name{ display:none; }   /* avatar only — keeps the bar calm */
+  .nav{ gap:18px; }
+  .nav a{ font-size:13px; }
+}
+
+
+/* ==========================================================================
+   6. SECTIONS / HERO
+   ========================================================================== */
+.section{ padding-block:80px; }
+.section + .section{ border-top:1px solid var(--rule); }
+
+.hero{ padding-block:120px 96px; }
+
+.hero h1{
+  font-size:clamp(2.75rem, 8vw, 4.75rem);
+  font-weight:700;
+  letter-spacing:-0.045em;
+  margin-bottom:22px;
+}
+
+.lede{
+  font-size:clamp(1.0625rem, 2.4vw, 1.3125rem);
+  line-height:1.5;
+  color:var(--muted);
+  max-width:38ch;
+  letter-spacing:-0.017em;
+}
+.lede strong{ color:var(--text); font-weight:600; }
+
+.section-title{
+  font-family:var(--mono);
+  font-size:12px;
+  font-weight:400;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--dim);
+  margin-bottom:40px;
+}
+
+
+/* ==========================================================================
+   7. PROJECTS — editorial index, one shared alignment
+   --------------------------------------------------------------------------
+   Every entry is a rail + body pair on the same two-column grid, so all four
+   share one left edge and the metadata always sits in the same place:
+
+     .project__rail   title, with the tech line directly under it
+     .project__body   description, then the actions row
+
+   .project--lead is the one exception, and it is the focal point: full
+   measure, display-size title, tech aligned to its baseline on the right.
+   script.js gives lead to the first entry; everything after it is a row.
+   ========================================================================== */
+.project{
+  padding-block:40px;
+}
+.project:first-child{ padding-top:0; }
+.project + .project{ border-top:1px solid var(--rule); }
+
+.project__title{
+  font-size:1.375rem;
+  font-weight:600;
+  letter-spacing:-0.03em;
+  overflow-wrap:anywhere;
+}
+
+/* the lead entry is display type, not bolder body type */
+.project--lead .project__title{
+  font-size:clamp(2rem, 4.4vw, 2.75rem);
+  letter-spacing:-0.042em;
+}
+
+/* technical metadata — deliberately quiet, always under the title */
+.project__tech{
+  margin-top:10px;
+  font-family:var(--mono);
+  font-size:12px;
+  line-height:1.5;
+  color:var(--dim);
+  letter-spacing:0.005em;
+  overflow-wrap:anywhere;
+}
+
+.project__desc{
+  margin-top:14px;
+  font-size:15px;
+  line-height:1.62;
+  color:var(--muted);
+  max-width:62ch;
+}
+
+.project__actions{
+  display:flex;
+  align-items:center;
+  gap:22px;
+  flex-wrap:wrap;
+  margin-top:18px;
+}
+
+.project__link{
+  font-size:14px;
+  color:var(--muted);
+  border-bottom:1px solid transparent;
+  padding-bottom:1px;
+  transition:color .18s ease, border-color .18s ease;
+  display:inline-flex;
+  align-items:center;
+  min-height:32px;
+}
+.project__link:hover{ color:var(--text); border-color:var(--rule-strong); }
+
+/* --- status labels --- */
+.status{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:13.5px;
+  letter-spacing:-0.005em;
+  min-height:32px;
+}
+
+.status__dot{
+  width:7px; height:7px;
+  border-radius:50%;
+  flex:none;
+}
+
+.status--building{ color:var(--building); }
+.status--building .status__dot{
+  background:var(--building);
+  box-shadow:0 0 7px 1px var(--building-glow);
+}
+
+.status--live{ color:var(--live); }
+.status--live .status__dot{
+  background:var(--live);
+  box-shadow:0 0 7px 1px var(--live-glow);
+}
+
+/* only linked Live labels get link affordances */
+a.status--live{
+  border-bottom:1px solid transparent;
+  padding-bottom:1px;
+  transition:border-color .18s ease;
+}
+a.status--live:hover{ border-color:currentColor; }
+
+/* --- two columns on wider screens; one below, in source order --- */
+@media (min-width:900px){
+
+  .project{
+    display:grid;
+    grid-template-columns:minmax(0, 4fr) minmax(0, 8fr);
+    column-gap:32px;
+    align-items:start;
+  }
+
+  /* the body column starts level with the title, not below it */
+  .project__desc{ margin-top:0; }
+
+  /* --- lead: full measure, sets the top of the index --- */
+  .project--lead{
+    grid-template-columns:minmax(0, 1fr);
+    padding-block:40px 56px;
+  }
+
+  .project--lead .project__rail{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    column-gap:32px;
+  }
+  .project--lead .project__tech{
+    margin-top:0;
+    text-align:right;
+    flex:none;
+  }
+  .project--lead .project__desc{
+    margin-top:22px;
+    font-size:16px;
+    max-width:58ch;
+  }
+}
+
+
+/* ==========================================================================
+   8. EXPERIENCE
+   ========================================================================== */
+.experience__lead{
+  font-size:19px;
+  font-weight:600;
+  letter-spacing:-0.025em;
+  margin-bottom:12px;
+}
+.experience__note{
+  font-size:15px;
+  color:var(--muted);
+  max-width:58ch;
+}
+
+
+/* ==========================================================================
+   9. EDUCATION
+   ========================================================================== */
+.edu__item{ padding-block:24px; }
+.edu__item:first-child{ padding-top:0; }
+.edu__item + .edu__item{ border-top:1px solid var(--rule); }
+
+.edu__years{
+  font-family:var(--mono);
+  font-size:13px;
+  color:var(--dim);
+  letter-spacing:0;
+  white-space:nowrap;
+}
+.edu__school{ font-size:18px; font-weight:600; }
+.edu__degree{ font-size:15px; color:var(--muted); margin-top:3px; }
+
+@media (min-width:640px){
+  .edu__item{
+    display:grid;
+    grid-template-columns:150px 1fr;
+    gap:28px;
+    align-items:baseline;
+  }
+}
+@media (max-width:639px){
+  .edu__years{ display:block; margin-bottom:8px; }
+}
+
+
+/* ==========================================================================
+   10. SKILLS
+   ========================================================================== */
+.skills{ display:grid; gap:26px; }
+.skills > div{ display:grid; gap:6px; }
+
+.skills dt{
+  font-family:var(--mono);
+  font-size:12.5px;
+  color:var(--dim);
+  letter-spacing:0;
+}
+.skills dd{ margin:0; font-size:15.5px; line-height:1.7; color:var(--text); }
+
+@media (min-width:640px){
+  .skills > div{
+    grid-template-columns:150px 1fr;
+    gap:28px;
+    align-items:start;
+  }
+  .skills dt{ padding-top:3px; }
+}
+
+
+/* ==========================================================================
+   11. FOOTER
+   ========================================================================== */
+.site-footer{
+  border-top:1px solid var(--rule);
+  padding-block:64px 72px;
+}
+
+.footer-grid{
+  display:grid;
+  gap:44px;
+  font-family:var(--mono);
+  font-size:13.5px;
+  line-height:1.9;
+}
+
+@media (min-width:720px){
+  .footer-grid{ grid-template-columns:repeat(3, 1fr); gap:32px; }
+}
+
+.footer-label{
+  font-size:11.5px;
+  font-weight:400;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--dim);
+  margin-bottom:18px;
+}
+
+.footer-col a{
+  color:var(--muted);
+  transition:color .18s ease;
+  display:inline-block;
+}
+.footer-col a:hover{ color:var(--text); }
+
+.footer-name{
+  color:var(--text);
+  font-weight:500;
+  margin-bottom:2px;
+}
+
+.email-row{ display:flex; align-items:center; gap:8px; }
+
+.email-row a{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  max-width:26ch;
+}
+
+.copy-btn{
+  appearance:none;
+  background:none;
+  border:0;
+  padding:6px;
+  margin:0;
+  color:var(--dim);
+  cursor:pointer;
+  display:inline-grid;
+  place-items:center;
+  border-radius:4px;
+  transition:color .18s ease;
+  flex:none;
+}
+.copy-btn:hover{ color:var(--text); }
+.copy-btn svg{ width:14px; height:14px; display:block; }
+.copy-btn .icon-check{ display:none; }
+.copy-btn[data-copied="true"]{ color:var(--live); }
+.copy-btn[data-copied="true"] .icon-copy{ display:none; }
+.copy-btn[data-copied="true"] .icon-check{ display:block; }
+
+.footer-meta{
+  margin-top:52px;
+  padding-top:24px;
+  border-top:1px solid var(--rule);
+  font-family:var(--mono);
+  font-size:12px;
+  color:var(--dim);
+}
+
+
+/* ==========================================================================
+   12. MOTION
+   ========================================================================== */
+@media (prefers-reduced-motion:reduce){
+  html{ scroll-behavior:auto; }
+  *{ transition:none !important; animation:none !important; }
+}

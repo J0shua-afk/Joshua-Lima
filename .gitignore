@@ -1,0 +1,16 @@
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Node (not used by this project, but harmless if you add tooling later)
+node_modules/
+
+# Vercel
+.vercel
