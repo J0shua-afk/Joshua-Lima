@@ -64,7 +64,7 @@ Each project is one object in the `projects` array:
 | `title` | Project name. |
 | `description` | One to two sentences. Leave `""` and no description renders. |
 | `status` | `"building"` (yellow glow), `"live"` (green glow), or `""` for no label. |
-| `technologies` | Array of strings, joined with a middle dot on the page. Three is typical; one works fine — Course Management shows only `C++`. |
+| `technologies` | Array of strings, joined with a middle dot on the page. |
 | `githubUrl` | Repository link. |
 | `liveUrl` | Leave `""` and the Live label is plain text. Put a URL in and it becomes a clickable link automatically. |
 
