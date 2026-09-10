@@ -23,10 +23,7 @@ portfolio/
 | `index.html` | The page skeleton: header, hero, projects container, experience, education, skills container, footer. Loads `styles.css` in the head and `script.js` with `defer`. |
 | `styles.css` | Every style rule. Numbered sections at the top of the file map to the page. Section 7 holds the projects grid. |
 | `script.js` | The `CONFIG` object (your links, projects, skills) and the code that renders projects and skills into the page, orders projects by status, handles the avatar fallback, and drives the copy-email button. |
-| `assets/` | Images. Currently just your profile photo. |
-
-No `vercel.json` is included, and none is needed — Vercel serves a plain static
-folder without configuration.
+| `assets/` | Images. Currently just your profile photo. 
 
 ---
 
