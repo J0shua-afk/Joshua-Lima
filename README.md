@@ -38,7 +38,7 @@ you'll want to change is in it.
 email:       "Joshualima900@gmail.com",
 githubUrl:   "https://github.com/J0shua-afk",
 linkedinUrl: "https://www.linkedin.com/in/YOUR-PROFILE",
-repoUrl:     "https://github.com/J0shua-afk/portfolio",
+repoUrl:     "https://github.com/J0shua-afk/Joshua.Lima",
 ```
 
 `email` feeds the footer address, the `mailto:` link and the copy button at once.
