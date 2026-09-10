@@ -13,10 +13,7 @@ portfolio/
 ├── styles.css      all styling, in 12 labelled sections
 ├── script.js       CONFIG block + rendering
 ├── .gitignore      keeps OS junk and editor folders out of the repo
-├── README.md       this file
-└── assets/
-    ├── .gitkeep    keeps the empty folder tracked in git
-    └── profile.jpg your header photo — you add this
+└── README.md       this file
 ```
 
 ### What each file does
