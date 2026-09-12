@@ -1,7 +1,5 @@
 /* ==========================================================================
-   Joshua-Grace Lima — portfolio
-   --------------------------------------------------------------------------
-   Everything you need to edit lives in the CONFIG block below.
+   Config is editable
    The rendering code underneath it can be left alone.
    ========================================================================== */
 
@@ -16,7 +14,7 @@ const CONFIG = {
   email:       "Joshualima900@gmail.com",
   githubUrl:   "https://github.com/J0shua-afk",
   linkedinUrl: "https://www.linkedin.com/in/joshua-grace-lima-40128b31b/",
-  repoUrl:     "https://github.com/J0shua-afk/Joshua.Lima",    // EDIT — this site's own repo
+  repoUrl:     "https://github.com/J0shua-afk/portfolio",    // site's own repo
 
   /* ---------------------------------------------------------------------
      PROJECTS
@@ -58,10 +56,10 @@ const CONFIG = {
         "and motion readings through an MQTT broker to a dashboard that updates asynchronously " +
         "as they arrive. Retained messages let a new connection see the last known motion " +
         "state immediately instead of waiting for the next event.",
-      status: "building",
+      status: "live",
       technologies: ["Python", "MQTT", "JavaScript"],
       githubUrl: "https://github.com/J0shua-afk/SmartHome-Sensors",
-      liveUrl: ""
+      liveUrl: "https://smart-home-dashboard-h1n1.vercel.app"
     },
     {
       title: "Multiplayer Hangman",
@@ -72,7 +70,7 @@ const CONFIG = {
       status: "live",
       technologies: ["Python", "JSON", "Socket"],
       githubUrl: "https://github.com/J0shua-afk/Multiplayer-Hangman",
-      liveUrl: ""                                                     // EDIT — add to make "Live" clickable
+      liveUrl: ""                                                     // add a url to make "Live" clickable
     },
     {
       title: "Course Management",
@@ -82,15 +80,15 @@ const CONFIG = {
       status: "live",
       technologies: ["C++"],
       githubUrl: "https://github.com/J0shua-afk/Course-Management-System",
-      liveUrl: ""                                                    // EDIT — add to make "Live" clickable
+      liveUrl: ""                                                    
     }
   ],
 
   /* ---------------------------------------------------------------------
-     SKILLS — one row per object. Taken from your resume.
+     SKILLS 
      --------------------------------------------------------------------- */
   skills: [
-    { label: "Languages",       items: "Python, C#, C/C++, JavaScript/TypeScript, HTML/CSS, SQL, Bash" },
+    { label: "Languages",       items: "Python, C#, C/C++, JavaScript, TypeScript, HTML/CSS, SQL, Bash" },
     { label: "Frameworks",      items: "Flask, React, Node.js, Angular, Flutter, PyTorch" },
     { label: "Developer tools", items: "Git, GitHub, MySQL, MongoDB, Google Cloud, AWS, Figma, VS Code" },
     { label: "Libraries",       items: "NumPy, Pandas, Matplotlib, Requests, jQuery" }
