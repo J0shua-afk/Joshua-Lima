@@ -1,4 +1,4 @@
-# Joshua-Grace Lima — Portfolio
+# Portfolio
 
 A static personal portfolio. No framework, no build step, no dependencies.
 Download the folder, open `index.html`, and it runs.
