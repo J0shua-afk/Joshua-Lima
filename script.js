@@ -50,7 +50,7 @@ const CONFIG = {
       liveUrl: ""
     },
     {
-      title: "Smart Home",
+      title: "Smart Home Dashboard",
       description:
         "A software-only IoT simulation: three Python publishers push temperature, humidity " +
         "and motion readings through an MQTT broker to a dashboard that updates asynchronously " +
@@ -70,7 +70,7 @@ const CONFIG = {
       status: "live",
       technologies: ["Python", "JSON", "Socket"],
       githubUrl: "https://github.com/J0shua-afk/Multiplayer-Hangman",
-      liveUrl: ""                                                     // add a url to make "Live" clickable
+      liveUrl: ""                                                    
     },
     {
       title: "Course Management",
