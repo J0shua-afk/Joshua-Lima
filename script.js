@@ -1,20 +1,19 @@
-/* ==========================================================================
-   Config is editable
-   The rendering code underneath it can be left alone.
-   ========================================================================== */
+
+   // Config is editable
+   // The rendering code underneath it can be left alone.
+ 
 
 /* ==========================================================================
    CONFIG
    ========================================================================== */
 const CONFIG = {
 
-  /* ---------------------------------------------------------------------
-     LINKS
+  /*   LINKS
      --------------------------------------------------------------------- */
   email:       "Joshualima900@gmail.com",
   githubUrl:   "https://github.com/J0shua-afk",
   linkedinUrl: "https://www.linkedin.com/in/joshua-grace-lima-40128b31b/",
-  repoUrl:     "https://github.com/J0shua-afk/portfolio",    // site's own repo
+  repoUrl:     "https://github.com/J0shua-afk/Joshua-Lima",    // site's own repo
 
   /* ---------------------------------------------------------------------
      PROJECTS
@@ -23,7 +22,7 @@ const CONFIG = {
        description   one to two sentences
        status        "building" | "live" | ""   ("" renders no label)
        technologies  array of strings, joined with a middle dot.
-                     Use as many as are true — three is typical, one is fine.
+                     Use as many as are true, three is typical, one is fine.
        githubUrl     repository link
        liveUrl       leave "" and the Live label is plain text.
                      Add a URL and the label becomes a link automatically.
@@ -31,7 +30,7 @@ const CONFIG = {
      Ordering is automatic: building, then live, then unlabelled. Inside a
      group, entries keep the order you write them in here.
 
-     Layout is uniform: every entry is a "row" — title and tech on the left,
+     Layout is uniform: every entry is a "row", title and tech on the left,
      description and links on the right, all sharing one left edge. A single
      entry can be pinned to the wide display treatment by adding
      layout: "lead"  to it.
