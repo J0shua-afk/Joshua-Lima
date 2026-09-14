@@ -234,7 +234,7 @@ img{ display:block; max-width:100%; }
   font-size:clamp(1.0625rem, 2.4vw, 1.3125rem);
   line-height:1.5;
   color:var(--muted);
-  max-width:55ch;
+  max-width:61ch;
   letter-spacing:-0.017em;
 }
 .lede strong{ color:var(--text); font-weight:600; }
@@ -282,7 +282,7 @@ img{ display:block; max-width:100%; }
   letter-spacing:-0.042em;
 }
 
-/* technical metadata — deliberately quiet, always under the title */
+/* technical metadata, deliberately quiet, always under the title */
 .project__tech{
   margin-top:10px;
   font-family:var(--mono);
