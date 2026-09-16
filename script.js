@@ -66,7 +66,7 @@ const CONFIG = {
         "A networked Hangman where one player hosts and chooses the word while the others " +
         "connect as guessers, drawing from five word categories. Turn order, player status, " +
         "disconnects and end of game stay synchronized across every client over raw sockets.",
-      status: "live",
+      status: "",
       technologies: ["Python", "JSON", "Socket"],
       githubUrl: "https://github.com/J0shua-afk/Multiplayer-Hangman",
       liveUrl: ""                                                    
@@ -76,7 +76,7 @@ const CONFIG = {
       description:
         "Software for running the day-to-day operations of a course management system, " +
         "written in C++.",
-      status: "live",
+      status: "",
       technologies: ["C++"],
       githubUrl: "https://github.com/J0shua-afk/Course-Management-System",
       liveUrl: ""                                                    
