@@ -34,10 +34,10 @@ you'll want to change is in it.
 ### Links
 
 ```js
-email:       "Joshualima900@gmail.com",
-githubUrl:   "https://github.com/J0shua-afk",
-linkedinUrl: "https://www.linkedin.com/in/YOUR-PROFILE",
-repoUrl:     "https://github.com/J0shua-afk/Joshua.Lima",
+email:       "",
+githubUrl:   "",
+linkedinUrl: "",
+repoUrl:     "",
 ```
 
 `email` feeds the footer address, the `mailto:` link and the copy button at once.
@@ -49,11 +49,11 @@ Each project is one object in the `projects` array:
 
 ```js
 {
-  title: "Smart Home",
-  description: "A software-only IoT simulation: ...",
-  status: "building",
-  technologies: ["Python", "MQTT", "JavaScript"],
-  githubUrl: "https://github.com/J0shua-afk/smart-home",
+  title: "",
+  description: "",
+  status: "",
+  technologies: [""],
+  githubUrl: "",
   liveUrl: ""
 }
 ```
@@ -86,7 +86,7 @@ To add a project, copy any block into the array. To remove one, delete its block
 
 ```js
 skills: [
-  { label: "Languages", items: "Python, C#, C/C++, ..." }
+  { label: "", items: "C#, C/C++, ..." }
 ]
 ```
 
@@ -94,10 +94,10 @@ One object per row. Add, remove or rename rows freely.
 
 ### Profile picture
 
-The header shows your initials (`JL`) in a circle until a real photo exists:
+The header shows my initials (`JL`) in a circle until a real photo exists:
 
 1. Save your photo as `assets/profile.jpg`.
-2. Square crop; roughly 200×200 px is plenty — it renders at 26 px.
+2. Square crop; roughly 200×200 px is plenty, it renders at 26 px.
 
 If the file is missing or fails to load, it falls back to the initials silently, so a
 broken image icon can never appear.
