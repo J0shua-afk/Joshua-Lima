@@ -69,9 +69,9 @@ Each project is one object in the `projects` array:
 
 **Ordering is automatic.** Building first, then Live, then anything unlabelled.
 Within a group, entries keep the order you wrote them in. Change a `status` and the
-page reorders itself — you never re-sort the array by hand.
+page reorders itself and you never re-sort the array by hand.
 
-**Layout is uniform.** Every project renders as a `row` — title and tech on the
+**Layout is uniform.** Every project renders as a `row` title and tech on the
 left, description and links on the right, all sharing one left edge, so the
 section reads as a single index. One entry can be pinned to the wide display
 treatment if you ever want a featured slot:
