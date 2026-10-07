@@ -1,6 +1,6 @@
-/* ==========================================================================
+/* 
    Portfolio styles
-   --------------------------------------------------------------------------
+  
    1. Tokens
    2. Base
    3. Column
@@ -13,12 +13,12 @@
   10. Skills
   11. Footer
   12. Motion
-   ========================================================================== */
+*/
 
 
-/* ==========================================================================
+/* 
    1. TOKENS
-   ========================================================================== */
+ */
 :root{
   --bg:           #000000;
   --text:         #f5f5f7;
@@ -147,9 +147,9 @@ img{ display:block; max-width:100%; }
 }
 
 
-/* ==========================================================================
+/* 
    5. HEADER
-   ========================================================================== */
+*/
 .site-header{
   position:sticky;
   top:0;
@@ -214,10 +214,16 @@ img{ display:block; max-width:100%; }
   .nav a{ font-size:13px; }
 }
 
+@media (max-width:340px){
+  .bar{ gap:12px; }
+  .nav{ gap:12px; }
+  .nav a{ font-size:12px; }
+}
 
-/* ==========================================================================
+
+/* 
    6. SECTIONS / HERO
-   ========================================================================== */
+ */
 .section{ padding-block:80px; }
 .section + .section{ border-top:1px solid var(--rule); }
 
@@ -250,7 +256,7 @@ img{ display:block; max-width:100%; }
 }
 
 
-/* ==========================================================================
+/*
    7. PROJECTS — editorial index, one shared alignment
    --------------------------------------------------------------------------
    Every entry is a rail + body pair on the same two-column grid, so all four
@@ -262,7 +268,7 @@ img{ display:block; max-width:100%; }
    .project--lead is the one exception, and it is the focal point: full
    measure, display-size title, tech aligned to its baseline on the right.
    script.js gives lead to the first entry; everything after it is a row.
-   ========================================================================== */
+*/
 .project{
   padding-block:40px;
 }
@@ -395,9 +401,9 @@ a.status--live:hover{ border-color:currentColor; }
 }
 
 
-/* ==========================================================================
+/* 
    8. EXPERIENCE
-   ========================================================================== */
+*/
 .experience__lead{
   font-size:19px;
   font-weight:600;
@@ -411,9 +417,9 @@ a.status--live:hover{ border-color:currentColor; }
 }
 
 
-/* ==========================================================================
+/* 
    9. EDUCATION
-   ========================================================================== */
+*/
 .edu__item{ padding-block:24px; }
 .edu__item:first-child{ padding-top:0; }
 .edu__item + .edu__item{ border-top:1px solid var(--rule); }
@@ -441,9 +447,9 @@ a.status--live:hover{ border-color:currentColor; }
 }
 
 
-/* ==========================================================================
+/*
    10. SKILLS
-   ========================================================================== */
+*/
 .skills{ display:grid; gap:26px; }
 .skills > div{ display:grid; gap:6px; }
 
@@ -465,9 +471,9 @@ a.status--live:hover{ border-color:currentColor; }
 }
 
 
-/* ==========================================================================
+/* 
    11. FOOTER
-   ========================================================================== */
+*/
 .site-footer{
   border-top:1px solid var(--rule);
   padding-block:64px 72px;
@@ -547,9 +553,9 @@ a.status--live:hover{ border-color:currentColor; }
 }
 
 
-/* ==========================================================================
+/*
    12. MOTION
-   ========================================================================== */
+*/
 @media (prefers-reduced-motion:reduce){
   html{ scroll-behavior:auto; }
   *{ transition:none !important; animation:none !important; }
