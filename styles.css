@@ -1,6 +1,6 @@
 /* 
    Portfolio styles
-  
+   --------------------------------------------------------------------------
    1. Tokens
    2. Base
    3. Column
@@ -18,7 +18,7 @@
 
 /* 
    1. TOKENS
- */
+*/
 :root{
   --bg:           #000000;
   --text:         #f5f5f7;
@@ -223,7 +223,7 @@ img{ display:block; max-width:100%; }
 
 /* 
    6. SECTIONS / HERO
- */
+*/
 .section{ padding-block:80px; }
 .section + .section{ border-top:1px solid var(--rule); }
 
@@ -447,7 +447,7 @@ a.status--live:hover{ border-color:currentColor; }
 }
 
 
-/*
+/* 
    10. SKILLS
 */
 .skills{ display:grid; gap:26px; }
@@ -553,7 +553,7 @@ a.status--live:hover{ border-color:currentColor; }
 }
 
 
-/*
+/* 
    12. MOTION
 */
 @media (prefers-reduced-motion:reduce){
