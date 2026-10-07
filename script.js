@@ -14,6 +14,7 @@ const CONFIG = {
   githubUrl:   "https://github.com/J0shua-afk",
   linkedinUrl: "https://www.linkedin.com/in/joshua-grace-lima-40128b31b/",
   repoUrl:     "https://github.com/J0shua-afk/Joshua-Lima",    // site's own repo
+  resumeUrl:   "assets/Joshua-Grace_Lima_Resume.pdf",
 
   /* ---------------------------------------------------------------------
      PROJECTS
@@ -113,6 +114,12 @@ const CONFIG = {
   $("#nav-github").href   = CONFIG.githubUrl;
   $("#nav-linkedin").href = CONFIG.linkedinUrl;
   $("#footer-repo").href  = CONFIG.repoUrl;
+
+  var resumeLink = $("#nav-resume");
+  if (resumeLink) {
+    if (CONFIG.resumeUrl) { resumeLink.href = CONFIG.resumeUrl; }
+    else { resumeLink.remove(); }
+  }
 
   var emailLink = $("#footer-email");
   emailLink.href        = "mailto:" + CONFIG.email;
