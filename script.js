@@ -20,21 +20,14 @@ const CONFIG = {
      PROJECTS
 
        title         project name
-       description   one to two sentences
+       description   one to three sentences
        status        "building" | "live" | ""   ("" renders no label)
-       technologies  array of strings, joined with a middle dot.
-                     Use as many as are true, three is typical, one is fine.
+       technologies  joined with a middle dot, [] hides the line
        githubUrl     repository link
-       liveUrl       leave "" and the Live label is plain text.
-                     Add a URL and the label becomes a link automatically.
+       liveUrl       "" keeps the Live label as plain text, a url makes it a link
+       layout        optional, "lead" for the wide display treatment
 
-     Ordering is automatic: building, then live, then unlabelled. Inside a
-     group, entries keep the order you write them in here.
-
-     Layout is uniform: every entry is a "row", title and tech on the left,
-     description and links on the right, all sharing one left edge. A single
-     entry can be pinned to the wide display treatment by adding
-     layout: "lead"  to it.
+     the page shows them in the order written here
      --------------------------------------------------------------------- */
   projects: [
     {
@@ -43,14 +36,38 @@ const CONFIG = {
         "A live global room where every message is visible to everyone, and any word " +
         "someone uses is censored worldwide for the next 24 hours. The shared vocabulary " +
         "keeps shrinking as people talk, so the real problem is holding one consistent " +
-        "word state across thousands of concurrent senders.",
+        "word state across many concurrent senders.",
       status: "building",
-      technologies: ["Node.js", "WebSockets", "Redis"],
+      technologies: [],
       githubUrl: "https://github.com/J0shua-afk/censor-the-chat",
       liveUrl: ""
     },
     {
-      title: "Smart Home Dashboard",
+      title: "Groundwork RAG",
+      description:
+        "An assistant that answers questions about the co-op job postings from a Winter 2027 " +
+        "search, citing the postings it used or saying the answer isn't there. Postings are " +
+        "split into heading-aware chunks and searched with pgvector, so each answer is built " +
+        "only from the closest matching sections. The API is done and the interface is in progress.",
+      status: "building",
+      technologies: ["Python", "FastAPI", "pgvector"],
+      githubUrl: "https://github.com/J0shua-afk/Groundwork-RAG",
+      liveUrl: ""
+    },
+    {
+      title: "Applied AI",
+      description:
+        "A set of AI programs: a rule-based spam filter for raw .eml files, a breadth-first " +
+        "search solver for the water jug puzzle, a Connect Four player using Monte Carlo tree " +
+        "search, a logic prover and a Keras regression model for taxi fares. The Connect Four " +
+        "player steers its search with a heuristic-weighted UCB1 score.",
+      status: "",
+      technologies: ["Python", "TensorFlow/Keras", "unittest"],
+      githubUrl: "https://github.com/J0shua-afk/AII501NAA-F2026",
+      liveUrl: ""
+    },
+    {
+      title: "Smart Home MQTT Dashboard",
       description:
         "A software-only IoT simulation: three Python publishers push temperature, humidity " +
         "and motion readings through an MQTT broker to a dashboard that updates asynchronously " +
@@ -58,29 +75,31 @@ const CONFIG = {
         "state immediately instead of waiting for the next event.",
       status: "live",
       technologies: ["Python", "MQTT", "JavaScript"],
-      githubUrl: "https://github.com/J0shua-afk/SmartHome-Sensors",
+      githubUrl: "https://github.com/J0shua-afk/Smart-Home-Dashboard",
       liveUrl: "https://smart-home-dashboard-h1n1.vercel.app"
     },
     {
       title: "Multiplayer Hangman",
       description:
-        "A networked Hangman where one player hosts and chooses the word while the others " +
-        "connect as guessers, drawing from five word categories. Turn order, player status, " +
-        "disconnects and end of game stay synchronized across every client over raw sockets.",
+        "A networked Hangman where one player hosts and picks a word category, the server " +
+        "draws a random word from it, and the others join as guessers. The server runs one " +
+        "thread per client and broadcasts every guess and the end of the game to all of them " +
+        "as JSON over raw sockets.",
       status: "",
       technologies: ["Python", "JSON", "Socket"],
       githubUrl: "https://github.com/J0shua-afk/Multiplayer-Hangman",
-      liveUrl: ""                                                    
+      liveUrl: ""
     },
     {
       title: "Course Management",
       description:
-        "Software for running the day-to-day operations of a course management system, " +
-        "written in C++.",
+        "A console course registration system built in a team of two. Admins add departments " +
+        "and courses and save them to a CSV file that loads on the next start, while students " +
+        "browse departments, pick a schedule for each course and check out from a cart.",
       status: "",
       technologies: ["C++"],
       githubUrl: "https://github.com/J0shua-afk/Course-Management-System",
-      liveUrl: ""                                                    
+      liveUrl: ""
     }
   ],
 
@@ -139,19 +158,7 @@ const CONFIG = {
   if (avatarImg.complete && avatarImg.naturalWidth === 0) { avatarFallback(); }
 
   /* ---------- projects ---------- */
-  var STATUS_RANK = { building: 0, live: 1 };
   var LAYOUTS = { lead: true, row: true };
-
-  var ordered = CONFIG.projects
-    .map(function (project, index) { return { project: project, index: index }; })
-    .sort(function (a, b) {
-      var rankA = STATUS_RANK[a.project.status];
-      var rankB = STATUS_RANK[b.project.status];
-      if (rankA === undefined) { rankA = 2; }
-      if (rankB === undefined) { rankB = 2; }
-      return rankA - rankB || a.index - b.index;
-    })
-    .map(function (entry) { return entry.project; });
 
   function layoutFor(project) {
     return LAYOUTS[project.layout] ? project.layout : "row";
@@ -187,7 +194,7 @@ const CONFIG = {
     return '<p class="project__tech">' + text + '</p>';
   }
 
-  $("#project-list").innerHTML = ordered.map(function (project) {
+  $("#project-list").innerHTML = CONFIG.projects.map(function (project) {
     return '<article class="project project--' + layoutFor(project) + '">' +
              '<div class="project__rail">' +
                '<h3 class="project__title">' + esc(project.title) + '</h3>' +
