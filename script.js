@@ -27,7 +27,8 @@ const CONFIG = {
        liveUrl       "" keeps the Live label as plain text, a url makes it a link
        layout        optional, "lead" for the wide display treatment
 
-     the page shows them in the order written here
+     the page shows them in the order written here. the first 4 are
+     visible, the rest sit behind show more
      --------------------------------------------------------------------- */
   projects: [
     {
@@ -159,6 +160,7 @@ const CONFIG = {
 
   /* ---------- projects ---------- */
   var LAYOUTS = { lead: true, row: true };
+  var VISIBLE_PROJECTS = 4;
 
   function layoutFor(project) {
     return LAYOUTS[project.layout] ? project.layout : "row";
@@ -194,8 +196,9 @@ const CONFIG = {
     return '<p class="project__tech">' + text + '</p>';
   }
 
-  $("#project-list").innerHTML = CONFIG.projects.map(function (project) {
-    return '<article class="project project--' + layoutFor(project) + '">' +
+  $("#project-list").innerHTML = CONFIG.projects.map(function (project, index) {
+    var hidden = index >= VISIBLE_PROJECTS ? " hidden" : "";
+    return '<article class="project project--' + layoutFor(project) + '"' + hidden + '>' +
              '<div class="project__rail">' +
                '<h3 class="project__title">' + esc(project.title) + '</h3>' +
                techMarkup(project) +
@@ -214,6 +217,33 @@ const CONFIG = {
              '</div>' +
            '</article>';
   }).join("");
+
+  /* ---------- show more ---------- */
+  var projectToggle = $("#project-toggle");
+  var projectItems = $("#project-list").children;
+
+  function setProjectsExpanded(expanded) {
+    // browsers anchor scroll differently when content appears or vanishes, so pin
+    // one element by hand: the last visible project on open, the button on close
+    var pinned = expanded ? projectItems[VISIBLE_PROJECTS - 1] : projectToggle;
+    var before = pinned.getBoundingClientRect().top;
+
+    for (var i = VISIBLE_PROJECTS; i < projectItems.length; i++) {
+      projectItems[i].hidden = !expanded;
+    }
+    projectToggle.setAttribute("aria-expanded", String(expanded));
+    projectToggle.textContent = expanded ? "Show less" : "Show more";
+
+    // instant, or html's smooth scrolling animates the correction
+    window.scrollBy({ top: pinned.getBoundingClientRect().top - before, behavior: "instant" });
+  }
+
+  if (projectItems.length > VISIBLE_PROJECTS) {
+    projectToggle.hidden = false;
+    projectToggle.addEventListener("click", function () {
+      setProjectsExpanded(projectToggle.getAttribute("aria-expanded") !== "true");
+    });
+  }
 
   /* ---------- skills ---------- */
   $("#skill-list").innerHTML = CONFIG.skills.map(function (row) {

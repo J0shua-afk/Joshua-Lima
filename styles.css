@@ -257,21 +257,15 @@ img{ display:block; max-width:100%; }
 
 
 /*
-   7. PROJECTS — editorial index, one shared alignment
-   --------------------------------------------------------------------------
-   Every entry is a rail + body pair on the same two-column grid, so all four
-   share one left edge and the metadata always sits in the same place:
-
-     .project__rail   title, with the tech line directly under it
-     .project__body   description, then the actions row
-
-   .project--lead is the one exception, and it is the focal point: full
-   measure, display-size title, tech aligned to its baseline on the right.
-   script.js gives lead to the first entry; everything after it is a row.
+   7. PROJECTS
+   each entry is a rail (title, tech) and a body (description, links) on one
+   grid so they share a left edge. layout: "lead" in CONFIG gets the wide one
 */
 .project{
   padding-block:40px;
 }
+/* .project is display:grid on desktop, which beats the hidden attribute */
+.project[hidden]{ display:none; }
 .project:first-child{ padding-top:0; }
 .project + .project{ border-top:1px solid var(--rule); }
 
@@ -362,6 +356,27 @@ a.status--live{
   transition:border-color .18s ease;
 }
 a.status--live:hover{ border-color:currentColor; }
+
+/* --- show more --- */
+.projects-toggle{
+  appearance:none;
+  background:none;
+  border:0;
+  padding:0;
+  margin:0;
+  font:inherit;
+  font-size:14px;
+  color:var(--muted);
+  cursor:pointer;
+  min-height:44px;
+  /* underline instead of the links' border, a border would sit at the bottom of the 44px box */
+  text-decoration-line:underline;
+  text-decoration-color:transparent;
+  text-decoration-thickness:1px;
+  text-underline-offset:5px;
+  transition:color .18s ease, text-decoration-color .18s ease;
+}
+.projects-toggle:hover{ color:var(--text); text-decoration-color:var(--rule-strong); }
 
 /* --- two columns on wider screens; one below, in source order --- */
 @media (min-width:900px){
