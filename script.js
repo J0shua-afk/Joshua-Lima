@@ -50,7 +50,7 @@ const CONFIG = {
         "search, citing the postings it used or saying the answer isn't there. Postings are " +
         "split into heading-aware chunks and searched with pgvector, so each answer is built " +
         "only from the closest matching sections. The API is done and the interface is in progress.",
-      status: "building",
+      status: "live",
       technologies: ["Python", "FastAPI", "pgvector"],
       githubUrl: "https://github.com/J0shua-afk/Groundwork-RAG",
       liveUrl: "https://groundwork-rag-two.vercel.app/"
