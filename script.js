@@ -53,7 +53,7 @@ const CONFIG = {
       status: "building",
       technologies: ["Python", "FastAPI", "pgvector"],
       githubUrl: "https://github.com/J0shua-afk/Groundwork-RAG",
-      liveUrl: ""
+      liveUrl: "https://groundwork-rag-two.vercel.app/"
     },
     {
       title: "Applied AI",
